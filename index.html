@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Presupuesto</h1>
+    </header>
+
+    <main>
+        <section class="resumen">
+            <div class="resumen-item">
+                <p class="resumen-label">Ingresos</p>
+                <p class="resumen-valor" id="total-ingresos">0€</p>
+            </div>
+            <div class="resumen-item">
+                <p class="resumen-label">Gastos</p>
+                <p class="resumen-valor" id="total-gastos">0€</p>
+            </div>
+            <div class="resumen-item">
+                <p class="resumen-label">Balance</p>
+                <p class="resumen-valor" id="balance">0€</p>
+            </div>
+        </section>
+
+        <div class="grid-principal">
+            <div class="columna-izquierda">
+                <section class="ingresos">
+                    <h2>Ingresos</h2>
+                    <form class="form-ingreso">
+                        <input type="text" placeholder="Nombre (ej. Nómina)" class="input-nombre-ingreso">
+                        <input type="number" placeholder="Cantidad" class="input-cantidad-ingreso" min="0" step="0.01">
+                        <button type="submit">Añadir</button>
+                    </form>
+                    <p class="mensaje-error" id="error-ingreso"></p>
+                    <ul class="lista-ingresos" id="lista-ingresos"></ul>
+                </section>
+
+                <section class="gastos">
+                    <h2>Gastos</h2>
+
+                    <form class="form-categoria">
+                        <input type="text" placeholder="Nueva categoría (ej. Alquiler)" class="input-nueva-categoria">
+                        <button type="submit">Crear categoría</button>
+                    </form>
+                    <p class="mensaje-error" id="error-categoria"></p>
+
+                    <form class="form-gasto">
+                        <input type="text" placeholder="Nombre del gasto" class="input-nombre-gasto">
+                        <input type="number" placeholder="Cantidad" class="input-cantidad-gasto" min="0" step="0.01">
+                        <select class="select-categoria" id="select-categoria">
+                            <option value="">Selecciona una categoría</option>
+                        </select>
+                        <button type="submit">Añadir gasto</button>
+                    </form>
+                    <p class="mensaje-error" id="error-gasto"></p>
+
+                    <div class="lista-gastos" id="lista-gastos"></div>
+                </section>
+            </div>
+
+            <div class="columna-derecha">
+                <section class="ahorros">
+                    <h2>Metas de ahorro</h2>
+
+                    <form class="form-meta">
+                        <input type="text" placeholder="Nombre de la meta (ej. Viaje)" class="input-nombre-meta">
+                        <input type="number" placeholder="Cantidad objetivo" class="input-objetivo-meta" min="0"
+                            step="0.01">
+                        <button type="submit">Crear meta</button>
+                    </form>
+                    <p class="mensaje-error" id="error-meta"></p>
+                    <div class="lista-metas" id="lista-metas"></div>
+                </section>
+                <section class="grafica">
+                    <h2>Distribución de gastos</h2>
+                    <canvas id="grafico-gastos"></canvas>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
